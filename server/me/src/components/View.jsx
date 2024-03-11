@@ -33,7 +33,7 @@ export default function View() {
 
   const loadData = async () => {
     try {
-      const response = await fetch("http://localhost:5000/transactions", {
+      const response = await fetch("https://expense-tracker-h2n5.onrender.com/transactions", {
         method: "GET",
         headers: {
           "Content-Type": "application.json",
