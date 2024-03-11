@@ -8,7 +8,7 @@ export default function View() {
 
     const deleteTransaction = async () => {
         try {
-            const response = await fetch('http://localhost:5000/deleteAll', {
+            const response = await fetch('https://expense-tracker-h2n5.onrender.com/deleteAll', {
                 method: "DELETE",       
             });
 

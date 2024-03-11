@@ -29,18 +29,7 @@ const routes = {
         element : Sum
     }
 
-    // emails: {
-    //     path: '/main/emails',
-    //     element: Emails
-    // },
-    // invalid: {
-    //     path: '/main/*',
-    //     element: Emails
-    // },
-    // view: {
-    //     path: '/main/view',
-    //     element: ViewEmail
-    // }
+   
 }
 
 export { routes };

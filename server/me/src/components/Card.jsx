@@ -12,7 +12,7 @@ export default function Card(props) {
 
     try {
       // Send DELETE request to API with card ID
-      const response = await fetch('http://localhost:5000/delete', {
+      const response = await fetch('https://expense-tracker-h2n5.onrender.com/delete', {
         method: 'DELETE',
         headers: {
             "Content-Type": "application/json",
