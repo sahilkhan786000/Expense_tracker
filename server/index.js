@@ -3,25 +3,27 @@ import mongoDB from './db.js';
 import routes from './routes/route.js';
 import cors from 'cors';
 import path from 'path';
+import { fileURLToPath } from 'url';
 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
-const _dirname = path.resolve()
 const app = express();
 
-app.use(cors({ origin: 'http://localhost:3000' }));
-app.use(express.urlencoded({extended:true}));
-app.use(express.json({extended:true})); 
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json({ extended: true }));
+app.use(cors()); // Assuming you need CORS
 app.use('/', routes);
 
-app.use(express.static(path.join(_dirname, "./me/build")))
+app.use(express.static(path.join(__dirname, "./me/build")));
 
-app.get('*', function(_,res){
-  res.sendFile(path.join(__dirname, "./me/build/index.html", function(err){
+app.get('*', function (_, res) {
+  res.sendFile(path.join(__dirname, "./me/build/index.html"), function (err) {
     res.status(500).send(err);
-  }))
-})
+  });
+});
 
-const PORT =process.env.PORT || 5000 ;
+const PORT = process.env.PORT || 5000;
 // Connect to database before starting server
 mongoDB();
 
