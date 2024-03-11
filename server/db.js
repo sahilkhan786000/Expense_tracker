@@ -1,11 +1,14 @@
-import dotenv from 'dotenv';
 import mongoose from 'mongoose';
+import dotenv from 'dotenv';
+
 dotenv.config();
 
+const USERNAME = process.env.DB_USERNAME;
+const PASSWORD = process.env.DB_PASSWORD; 
 
 
  const mongoDB = async() => {
-    const DB_URL = 'mongodb+srv://salmanengis6397:Sahilkhan%407860@cluster0.tzix6td.mongodb.net/transaction?retryWrites=true&w=majority&appName=Cluster0';
+    const DB_URL = `mongodb+srv://${USERNAME}:${PASSWORD}@cluster0.2yn8zsd.mongodb.net/email?retryWrites=true&w=majority`;;
    try{
 
    await mongoose.connect(DB_URL);
