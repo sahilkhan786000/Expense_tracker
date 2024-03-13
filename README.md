@@ -77,6 +77,20 @@
 We welcome your feedback and contributions! Feel free to open issues or pull requests to improve this project.
 
 
+## Screenshots : 
+
+![image](https://github.com/sahilkhan786000/Expense_tracker/assets/95959159/dde5d0b1-20ce-4c61-b87e-75bb63af7760)
+
+![image](https://github.com/sahilkhan786000/Expense_tracker/assets/95959159/7a3bb2ed-b410-4a05-84b7-24df3322c0d1)
+
+![image](https://github.com/sahilkhan786000/Expense_tracker/assets/95959159/ebe794bd-e491-46c7-b8c4-e4e8d5d680b8)
+
+![image](https://github.com/sahilkhan786000/Expense_tracker/assets/95959159/1ef7426b-70bf-41e8-a221-33843445f0ff)
+
+
+
+
+
 
 
 
