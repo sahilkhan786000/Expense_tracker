@@ -28,7 +28,7 @@ console.log(JSON.stringify({
     password: credentials.password,
     city : credentials.city
   }))
-const response = await fetch("https://expense-tracker-h2n5.onrender.com/createuser", {
+const response = await fetch("https://expense-tracker-yn48.onrender.com/createuser", {
   method: "POST",
   headers: {
     "Content-Type": "application/json",

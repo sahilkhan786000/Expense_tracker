@@ -33,7 +33,7 @@ export default function Sum() {
 
     const handleSubmit = async () => {
         try {
-            const response = await fetch('https://expense-tracker-h2n5.onrender.com/transactions', {
+            const response = await fetch('https://expense-tracker-yn48.onrender.com/transactions', {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
