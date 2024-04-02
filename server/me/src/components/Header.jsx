@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import PropTypes from 'prop-types';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -14,13 +13,13 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
-import {useNavigate} from 'react-router-dom'
+import {useNavigate} from 'react-router-dom';
+import A from '../pictures/A.png'
 
 
 
 
-const drawerWidth = 240;
-const navItems = ['Home', 'About'];
+
 
 function Header(props) {
   const [username, setUsername] = useState('');
@@ -37,6 +36,10 @@ function Header(props) {
     }
   }, []);
 
+const drawerWidth = 240;
+const navItems = ['Home', 'About' ];
+const navItems1 = ['Home', 'About', 'Login', 'Signup' ];
+const navItems2 = [`Hi + ${username}`, 'Home', 'About', 'LogOut'];  
 
   
 function extractUsername(email) {
@@ -58,29 +61,61 @@ function extractUsername(email) {
     navigate('/');
   }
   const drawer = (
-    <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
-      <Typography variant="h6" sx={{ my: 2 }}>
-        MUI
-      </Typography>
+    <Box onClick={handleDrawerToggle} sx={{ display : 'flex', flexDirection: 'column', textAlign: 'center' }}>
+      <Box sx={{ my: 2 }}>
+      <img 
+            src={A}
+            alt="logo"
+            height="120px"
+            width="120px"
+            
+          />
+      </Box>
       <Divider />
+     
       <List>
-        {navItems.map((item) => (
-          <ListItem key={item} disablePadding>
-            <ListItemButton sx={{ textAlign: 'center' }}>
-              <ListItemText primary={item} />
-            </ListItemButton>
-          </ListItem>
-        ))}
+       
+     {!localStorage.getItem("authToken") ?
+    navItems1.map((item) => (
+      <ListItem key={item} disablePadding onClick={() => {
+          if (item === "Login") {
+            navigate("/login");
+          }else if(item == "Signup") {
+            navigate("/signup");}
+          else if(item == "Home") {
+            navigate("/");
+          }
+           } }>
+        <ListItemButton sx={{ textAlign: 'center' }}>
+          <ListItemText primary={item} />
+        </ListItemButton>
+      </ListItem>
+    ))
+    :
+    navItems2.map((item) => (
+      <ListItem key={item} disablePadding onClick = {() => { if (item === "Home") {navigate("/")} 
+      else if (item === "LogOut") {handleLogOut()}  }}>
+        <ListItemButton sx={{ textAlign: 'center' }}>
+          <ListItemText primary={item} />
+        </ListItemButton>
+      </ListItem>
+    ))
+  }
+        
+
       </List>
+
+     
+
+      
     </Box>
   );
 
   const container = window !== undefined ? () => window().document.body : undefined;
-
   return (
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
-      <AppBar component="nav" sx = {{ backgroundColor: 'turquoise'}}>
+      <AppBar component="nav" sx={{ backgroundColor: 'turquoise' }}>
         <Toolbar>
           <IconButton
             color="inherit"
@@ -90,38 +125,40 @@ function extractUsername(email) {
             sx={{ mr: 2, display: { sm: 'none' } }}
           >
             <MenuIcon />
-          </IconButton>
-          <Typography
-            variant="h6"
-            component="div"
-            sx={{  display: { xs: 'none', sm: 'block' } }}
-          >
-            MUI
-          </Typography>
 
+            
+          </IconButton>
+          <Box sx = {{display : { xs: 'none', sm: 'block'}}}>
+           <img 
+            src={A}
+            alt="logo"
+            height="120px"
+            width="120px"
+            
+          /></Box>
           
-          <Box sx={{ ml:'20px', flexGrow: 1, display: { xs: 'none', sm: 'block' } }}>
+
+         
+  
+          <Box sx={{ ml: '20px', flexGrow: 1, display: { xs: 'none', sm: 'block' } }}>
             {navItems.map((item) => (
               <Button key={item} sx={{ color: '#fff' }}>
                 {item}
               </Button>
             ))}
           </Box>
-
-    {(!localStorage.getItem("authToken"))?
-      <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
-      <Button sx={{ color: '#fff' }} onClick={() => navigate("/login")} >Login</Button>
-
-      <Button sx={{ color: '#fff' }} onClick={() => navigate("/signup")} >SignUp</Button>
-      </Box>
-      :
-      <Box sx={{ display : 'flex' , alignItems : 'center', gap : '5px' }}>
-      <Button sx={{ color: '#fff' }} onClick = {() => handleLogOut() }>LogOut</Button>
-      <Box sx={{ color: '#fff' }}>Hi {username}</Box>
-      </Box>
-      }
-
-         
+  
+          {!localStorage.getItem("authToken") ?
+            <Box sx={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
+              <Button sx={{ color: '#fff' }} onClick={() => navigate("/login")}>Login</Button>
+              <Button sx={{ color: '#fff' }} onClick={() => navigate("/signup")}>SignUp</Button>
+            </Box>
+            :
+            <Box sx={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
+              <Button sx={{ color: '#fff' }} onClick={() => handleLogOut()}>LogOut</Button>
+              <Box sx={{ color: '#fff' }}>Hi {username}</Box>
+            </Box>
+          }
         </Toolbar>
       </AppBar>
       <nav>
@@ -141,10 +178,9 @@ function extractUsername(email) {
           {drawer}
         </Drawer>
       </nav>
-      
     </Box>
   );
-}
+        }  
 
 // DrawerAppBar.propTypes = {
 //   /**
