@@ -1,5 +1,3 @@
-import {  Suspense, lazy } from 'react';
-// import { SuspenseLoader } from "./components/SuspenseLoader";
 import Main from "./pages/Main"
 import Login from "./pages/Login"
 import SignUp from "./pages/SignUp"

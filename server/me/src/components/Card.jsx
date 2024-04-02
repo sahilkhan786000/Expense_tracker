@@ -1,11 +1,11 @@
-import React, { useState, useRef, useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
-import Box from '@mui/material/Box';
+import React, { useState} from 'react'
+
+
 
 export default function Card(props) {
 
     const [isDeleting, setIsDeleting] = useState(false);
-  const navigate = useNavigate();
+
 
   const handleDelete = async () => {
     setIsDeleting(true); // Set deleting state to provide visual feedback

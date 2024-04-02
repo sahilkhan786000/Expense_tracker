@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Dialog, styled, Typography, Box, InputBase, TextField, Button } from '@mui/material'; 
+import { Dialog, styled, Typography, Box, InputBase, Button } from '@mui/material'; 
 import { Close, DeleteOutline } from '@mui/icons-material';
 
 
@@ -112,14 +112,14 @@ const CreateButton = styled(Button)`
    const closeCompose = (e) => {
         e.preventDefault();
 
-        const payload = {
-            firstname : data.firstname,
-            lastname : data.lastname,
-            email : data.email ,
-            income : data.income,
-            expense : data.expense,
-            date: formatDate(data.date)
-        }
+        // const payload = {
+        //     firstname : data.firstname,
+        //     lastname : data.lastname,
+        //     email : data.email ,
+        //     income : data.income,
+        //     expense : data.expense,
+        //     date: formatDate(data.date)
+        // }
 
      
 

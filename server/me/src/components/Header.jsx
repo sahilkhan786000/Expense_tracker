@@ -11,7 +11,6 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import {useNavigate} from 'react-router-dom';
 import A from '../pictures/A.png'
@@ -80,9 +79,9 @@ function extractUsername(email) {
       <ListItem key={item} disablePadding onClick={() => {
           if (item === "Login") {
             navigate("/login");
-          }else if(item == "Signup") {
+          }else if(item === "Signup") {
             navigate("/signup");}
-          else if(item == "Home") {
+          else if(item === "Home") {
             navigate("/");
           }
            } }>
